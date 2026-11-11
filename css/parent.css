@@ -1,0 +1,15 @@
+/* Parent view (phone-first, 390 wide) with a bottom tab bar. */
+.parent-main { max-width: 560px; margin: 0 auto; padding: var(--space-4) var(--space-4) 96px; display: flex; flex-direction: column; gap: var(--space-4); font-size: var(--fs-body-lg); }
+.parent-main h1 { font-size: var(--fs-h1); }
+.parent-main .card { padding: var(--space-4); gap: var(--space-3); }
+.alert-bar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--danger-bg); border: 1px solid var(--danger-icon); color: var(--danger-text); font-weight: 700; text-decoration: none; }
+.alert-bar .icon:first-child { color: var(--danger-icon); }
+.quote { padding: 12px; border-radius: var(--radius-md); background: var(--bg-subtle); color: var(--text-secondary); }
+.alert-row { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 8px; text-decoration: none; color: inherit; border-radius: 10px; }
+.alert-row + .alert-row { border-top: 1px solid var(--border-default); }
+.idea { display: flex; gap: 12px; padding: 12px; border: 1px solid var(--border-default); border-radius: 12px; }
+.idea .icon { color: var(--text-link); }
+.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; display: flex; justify-content: center; background: var(--bg-surface); border-top: 1px solid var(--border-default); }
+.bottom-nav__inner { display: grid; grid-template-columns: repeat(3, 1fr); width: min(560px, 100%); }
+.tabitem { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 64px; color: var(--text-secondary); text-decoration: none; font-size: var(--fs-caption); font-weight: 600; border-top: 3px solid transparent; }
+.tabitem[aria-current="page"] { color: var(--text-primary); border-top-color: var(--action-primary); }

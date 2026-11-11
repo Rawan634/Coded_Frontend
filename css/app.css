@@ -1,0 +1,51 @@
+/* Shell: top bar, teacher side nav, role select. */
+.topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); height: 64px; padding: 0 var(--space-6); background: var(--bg-surface); border-bottom: 1px solid var(--border-default); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 18px; }
+.brand__mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--action-primary); }
+.brand__mark::after { content: ""; width: 14px; height: 14px; border-radius: 999px; border: 4px solid var(--accent-sunflower); }
+.topbar__right { display: flex; align-items: center; gap: var(--space-3); }
+.topbar__demo { display: flex; align-items: center; gap: var(--space-2); padding-right: var(--space-3); margin-right: var(--space-1); border-right: 1px solid var(--border-default); }
+.topbar__demo .select { min-height: 36px; padding: 6px 36px 6px 10px; font-size: 13px; max-width: 220px; }
+.topbar__demo .btn { min-height: 36px; padding: 0 12px; font-size: 13px; }
+.bell { position: relative; }
+.bell__dot { position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 999px; background: var(--danger-icon); border: 2px solid #fff; }
+.who { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+
+.teacher-shell { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: calc(100vh - 64px); }
+.sidenav { background: var(--bg-surface); border-right: 1px solid var(--border-default); padding: var(--space-5) var(--space-3); display: flex; flex-direction: column; gap: 4px; }
+.sidenav__class { font-size: var(--fs-caption); color: var(--text-secondary); padding: 0 var(--space-3) var(--space-3); }
+.navitem { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: var(--radius-md); color: var(--text-secondary); text-decoration: none; font-weight: 600; }
+.navitem:hover { background: var(--bg-subtle); }
+.navitem[aria-current="page"] { background: var(--bg-selected); color: var(--text-primary); font-weight: 700; }
+.navitem__count { margin-left: auto; font-size: var(--fs-caption); background: var(--bg-subtle); border-radius: 999px; padding: 0 8px; }
+.navitem[aria-current="page"] .navitem__count { background: var(--action-primary); color: #fff; }
+.teacher-main { padding: var(--space-8) var(--space-12); display: flex; flex-direction: column; gap: var(--space-6); min-width: 0; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); }
+.page-head__titles { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.crumb { font-size: var(--fs-caption); color: var(--text-secondary); }
+.subtitle { color: var(--text-secondary); }
+
+.role-page { min-height: 100vh; display: grid; place-items: center; padding: var(--space-10) var(--space-4); }
+.role-page__inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); text-align: center; max-width: 760px; }
+.role-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); width: 100%; }
+.role-card { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); padding: var(--space-8) var(--space-4); border: 1.5px solid var(--border-input); border-radius: var(--radius-lg); background: var(--bg-surface); text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 18px; }
+.role-card:hover { border-color: var(--action-primary); background: var(--bg-subtle); }
+.role-card__icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 999px; background: var(--bg-student); color: var(--text-primary); }
+.role-card small { font-weight: 500; font-size: var(--fs-caption); color: var(--text-secondary); }
+.demo-links { display: flex; gap: var(--space-5); flex-wrap: wrap; justify-content: center; font-size: var(--fs-caption); }
+
+@media (max-width: 900px) {
+  .teacher-shell { grid-template-columns: 1fr; }
+  .sidenav { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--border-default); padding: var(--space-2); }
+  .sidenav__class { display: none; }
+  .navitem { white-space: nowrap; }
+  .teacher-main { padding: var(--space-5) var(--space-4); }
+  .page-head { flex-direction: column; align-items: flex-start; }
+  .topbar__demo .select { max-width: 150px; }
+  .who span { display: none; }
+}
+@media (max-width: 640px) {
+  .role-cards { grid-template-columns: 1fr; }
+  .topbar { padding: 0 var(--space-3); }
+  .topbar__demo .btn { display: none; }
+}
